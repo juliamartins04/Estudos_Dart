@@ -12,32 +12,21 @@ class Calculate {
         delta = calculateDelta();
       if ( delta > 0 ) {
         List<double> results= [];
-        results.add(delta);
-         results.add(calculateX1Positive(delta));
-         results.add(calculateX2Negative(delta));
+          results.add(delta);
+          results.add(calculateX1(delta));
+          results.add(calculateX2(delta));
         return results;
        } else {
         return [];
       }
     }    
-    return [];
+      return [];
   } 
     
-  bool verifyNumbers() {
-    return valueA != 0 && valueA != null && valueB != null && valueC != null;
-  }
-    
-  double calculateDelta() {
-    return math.pow(valueB!, 2) - ((4 * valueA!) * valueC!);  
-  }
-
-  double calculateX1Positive(delta) {
-    return (-valueB! + math.sqrt(delta)) / (2 * valueA!);
-  }
-  
-  double calculateX2Negative(delta) {
-    return (-valueB! - math.sqrt(delta)) / (2 * valueA!);
-  }  
+  bool verifyNumbers() => valueA != 0 && valueA != null && valueB != null && valueC != null;   
+  double calculateDelta() => math.pow(valueB!, 2) - ((4 * valueA!) * valueC!);
+  double calculateX1(delta) => (-valueB! + math.sqrt(delta)) / (2 * valueA!);
+  double calculateX2(delta) => (-valueB! - math.sqrt(delta)) / (2 * valueA!);
 }
    
 void main() {

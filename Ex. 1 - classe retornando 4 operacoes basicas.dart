@@ -21,8 +21,7 @@ class Number {
   
     String showResults() {
       return "Sum: ${sum()} \nSubtract: ${subtract()} \nMultiply: ${multiply()} \nDivide: ${divide()}";
-  }
-  
+  }  
 }  
 
 void main() {

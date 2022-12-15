@@ -2,8 +2,10 @@ import 'dart:math' as math;
 
 class Circle {
   
-  double? calculateArea(double r, {double pi = 3.141592}) => r.isNaN ? null : pi * math.pow(r, 2); 
-  double? calculatePerimeter(double r, {double pi = 3.141592}) => r.isNaN ? null : 2 * pi * r;
+  double? calculateArea(double radius, {double pi = 3.141592}) 
+    => radius.isNaN ? null : pi * math.pow(r, 2); 
+  double? calculatePerimeter(double radius, {double pi = 3.141592}) 
+    => radius.isNaN ? null : 2 * pi * r;
 }
 
 void main() {

@@ -7,17 +7,17 @@ class Number {
   String? returnNumbers() {
     if (valueOne != null && valueTwo != null && valueThree != null) {
         if (valueOne! < valueTwo! && valueTwo! < valueThree!) {
-          return '$valueOne $valueTwo $valueThree';
-      } else if (valueTwo! < valueThree! && valueThree! < valueOne!) {
-          return '$valueTwo $valueThree $valueOne';
-      } else if (valueTwo! < valueOne! && valueOne! < valueThree!) {
-          return '$valueTwo $valueOne $valueThree';
-      } else { 
-          return '$valueThree $valueOne $valueTwo';
-      }
+            return '$valueOne $valueTwo $valueThree';
+        } else if (valueTwo! < valueThree! && valueThree! < valueOne!) {
+            return '$valueTwo $valueThree $valueOne';
+        } else if (valueTwo! < valueOne! && valueOne! < valueThree!) {
+            return '$valueTwo $valueOne $valueThree';
+        } else { 
+            return '$valueThree $valueOne $valueTwo';
+        }
      } 
-    return null;
-  }
+      return null;
+  }  
 }
 
 void main() {

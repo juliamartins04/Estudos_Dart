@@ -1,9 +1,9 @@
 class Store {
 
-// método para calcular valor total da parcela
+  // metodo para calcular valor total da parcela
   double calculateValueParcel(double value, {double amountProduct = 1, double amountParcel = 1, int? fees}) {
 
-    // variável traz valor x quantidade de produtos (calcula da compra)
+    // variavel traz valor x quantidade de produtos (calcula da compra)
     double total = value * amountProduct;
     
     if (fees != null) {
@@ -18,38 +18,43 @@ class Store {
     return "$amountParcel x $valueParcel";
   }
   
-  String? parcelTotal(double value, {amountParcel = 1, amountProduct = 1}) {
-    
-    // váriavel que vai receber o valor de cada parcela
-    double valueParcel;
-    
-    // se o valor da parcela for maior que 0 e igual menor que 4
-      if (amountParcel! > 0 && amountParcel <= 4) {
-
+  String parcelTotal(double value, {amountParcel = 1, amountProduct = 1}) {  
+    // variavel que vai receber o valor de cada parcela
+    double? valueParcel;   
+      // se o valor da parcela for maior que 0 e igual menor que 4
+    if (amountParcel! > 0 && amountParcel <= 4) {
       // a variavel value parcel recebe o metodo que calcula o valor das parcelas criado a cima enviando os 
       // parametros (valor, quantidade de parcelas e quantidade de produtos)
-        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct);
+      return valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct);
 
-      } else if (amountParcel == 5) {
+      switch (amountParcel) {
+        case 5:
         valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 1);
-      } else if (amountParcel == 6) {
-        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 2); 
-      } else if (amountParcel == 7) {
+        break;
+      case 6:
+        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 2);
+        break;
+      case 7:
         valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 3);  
-      } else if (amountParcel == 8) {
-        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 5);   
-      } else if(amountParcel == 9) {
-        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 8);    
-      } else if (amountParcel == 10) {
-        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 13);   
-      } else if (amountParcel == 11) {
-        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 14);   
-      } else if (amountParcel == 12) {
-        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 15);   
-      } else {
-        return null;
+        break;
+      case 8:
+        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 5); 
+        break;
+      case 9:
+        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 8);
+        break;
+      case 10:
+        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 13);
+        break;
+      case 11:
+        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 14);
+        break;
+      case 12: 
+        valueParcel = calculateValueParcel(value, amountParcel: amountParcel, amountProduct: amountProduct, fees: 15);  
+        break;
       }
-    return showMessageParcel(valueParcel, amountParcel);
+    }
+      return showMessageParcel(valueParcel!, amountParcel);
   }
 }
 
