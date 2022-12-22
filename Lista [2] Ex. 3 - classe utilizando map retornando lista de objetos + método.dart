@@ -13,9 +13,7 @@ class Person {
     height = map['height'] ?? 0.0;
   }
 
-  bool testAge() {
-    return age != null && age! > 0;
-  }
+  bool testAge() => age != null && age! > 0;
 
   String? verifyAge() {
     if (testAge()) {
@@ -29,9 +27,7 @@ class Person {
   }
 
   @override
-  String toString() {
-    return "Name: $name \nAge: $age \nIs of legal age? ${verifyAge()} \nWeight: $weight \nHeight: $height";
-  }
+  String toString() => "Name: $name \nAge: $age \nIs of legal age? ${verifyAge()} \nWeight: $weight \nHeight: $height";
 }
 
 void main() {

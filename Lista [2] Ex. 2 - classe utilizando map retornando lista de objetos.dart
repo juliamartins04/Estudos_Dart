@@ -9,9 +9,7 @@ class Person {
   }
   
   @override
-  String toString() {
-    return "Name: $name";
-  }
+  String toString() => "Name: $name";
 }
 
 void main() {

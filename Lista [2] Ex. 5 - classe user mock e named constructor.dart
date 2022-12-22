@@ -14,9 +14,7 @@ class User {
   }
 
   @override
-  String toString() {
-    return "User Id: $userId \nId: $id \nTitle: $title \nCompleted: $completed";
-  }
+  String toString() => "User Id: $userId \nId: $id \nTitle: $title \nCompleted: $completed";
 }
 
 void main() {

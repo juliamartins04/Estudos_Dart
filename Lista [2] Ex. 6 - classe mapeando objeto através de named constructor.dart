@@ -24,9 +24,7 @@ class MapObject {
   }
 
   @override
-  String toString() {
-    return "Id: $id \nTitle: $title \nDescription: $description \nStart Date: $startDate \nExpected end date: $expectedEndDate \nAmount people: $amountPeople";
-  }
+  String toString() => "Id: $id \nTitle: $title \nDescription: $description \nStart Date: $startDate \nExpected end date: $expectedEndDate \nAmount people: $amountPeople";
 }
 
 void main() {

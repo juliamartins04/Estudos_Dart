@@ -8,9 +8,7 @@ class Person with PersonName {
   Person(this.name);
 
   @override
-  String toString() {
-    return "Name: $name \nMetod: ${showName(name)}";
-  }
+  String toString() => "Name: $name \nMetod: ${showName(name)}";
 }
 
 void main() {

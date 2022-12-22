@@ -16,9 +16,7 @@ class Animal {
   }
 
   @override
-  String toString() {
-    return "Id: $id \nName: $name \nDiet: $diet \nRange: $range \nStatus: $status";
-  }
+  String toString() => "Id: $id \nName: $name \nDiet: $diet \nRange: $range \nStatus: $status";
 }
 
 void main() {
@@ -26,8 +24,7 @@ void main() {
     {'id': 0, 'name': 'Alfredo', 'range': 'auauuuauuu'}, 
     {'id': 1, 'name': 'Rex', 'diet': 'Não', 'range': 'AUAUUU', 'status': 'vivo'}, 
     {'id': 2, 'name': 'Lia', 'range': 'miauu', 'status': 'gripado'}
-
-  ];
+ ];
 
   final List<Animal> animal =
       mock.map((element) => Animal.fromMap(element)).toList();

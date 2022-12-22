@@ -10,9 +10,7 @@ abstract class Person {
   String? transformToUpperCase() => "${name?.toUpperCase()} ${lastName?.toUpperCase()}";
   
   @override
-  String toString() {
-    return "Code: $code \nName: $name \nLast name: $lastName \nName to lower case: ${transformToLowerCase()} \nName to upper case: ${transformToUpperCase()}";
-  }  
+  String toString() => "Code: $code \nName: $name \nLast name: $lastName \nName to lower case: ${transformToLowerCase()} \nName to upper case: ${transformToUpperCase()}"; 
 }
 
 class Student extends Person {
@@ -40,9 +38,7 @@ class Teacher extends Person {
   double? calculateWage() => valueHour == null || numberOfWorkedHours == null ? null : valueHour! * numberOfWorkedHours!;
   
   @override
-  String toString() {
-    return "Name: $name \nLast name: $lastName \nCode: $code \nValue Hour: $valueHour \nNumber of worked hours: $numberOfWorkedHours \nWage: R\$${calculateWage()}";
-  }
+  String toString() => "Name: $name \nLast name: $lastName \nCode: $code \nValue Hour: $valueHour \nNumber of worked hours: $numberOfWorkedHours \nWage: R\$${calculateWage()}";
 }
 
 void main() {
