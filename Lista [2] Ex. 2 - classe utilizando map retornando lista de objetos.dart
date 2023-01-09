@@ -18,7 +18,6 @@ void main() {
   
 //   testes
 //   const mock = [{"name": "Wellinton"}, {"name": "Thiago"}, {"name": "Giovane"}];
-
   
 //   mapear (elementos) da lista mock 
 //   mock.map(element)

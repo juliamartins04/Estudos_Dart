@@ -23,9 +23,7 @@ class Student extends Person {
   double? calculateMedia() => note1 == null || note2 == null ? null : (note1! + note2!) / 2;
 
   @override
-  String toString() {
-    return "Code: $code \nName: $name \nLast name: $lastName \nNote 1: $note1 \nNota 2: $note2 \nMedia: ${calculateMedia()}";  
-  }  
+  String toString() => return "Code: $code \nName: $name \nLast name: $lastName \nNote 1: $note1 \nNota 2: $note2 \nMedia: ${calculateMedia()}";   
 }
 
 class Teacher extends Person {  

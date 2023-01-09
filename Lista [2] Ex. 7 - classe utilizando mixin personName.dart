@@ -2,8 +2,7 @@ mixin PersonName {
   String? showName(name) => name == null ? "BAD": "${name.toUpperCase()}"; 
 }
 
-class Person with PersonName {
-    
+class Person with PersonName {  
   String? name;  
   Person(this.name);
 
@@ -12,7 +11,6 @@ class Person with PersonName {
 }
 
 void main() {
-
   final person = Person("Júlia");
   print(person);
 
