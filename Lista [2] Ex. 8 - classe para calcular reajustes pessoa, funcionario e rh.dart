@@ -2,9 +2,9 @@ abstract class Person {
   
   String? name;
   String? birthDate;
-  String? sex;
+  String? gender;
   
-  Person(this.name, this.birthDate, this.sex);  
+  Person({this.name, this.birthDate, this.gender});  
 }
 
 class Employee extends Person{
@@ -13,10 +13,11 @@ class Employee extends Person{
   double? currentWage;
   String? office;
   
-  Employee({this.id, this.currentWage, this.office, String? name, String? birthDate, String? sex}): super(name, birthDate, sex);
+  Employee({this.id, this.currentWage, this.office, String? name, String? birthDate, String? gender}): super(name: name, birthDate: birthDate, gender: gender);
 }
 
 class Rh {
+
   String? companyName;
   int? cnpj;
  
@@ -27,39 +28,40 @@ class Rh {
     double? percentageIncrease;
     double? valueIncrease;
     double? wageTotal;
+    //totalAge
 
-    if (employee.currentWage != null) {
+
+    if (employee.currentWage == null) {
+      return null;
+    }   
+    if (employee.currentWage! < 280) {
+      percentageIncrease = 20;
+      valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
+      wageTotal = valueIncrease + employee.currentWage!;
+              
+    } else if (employee.currentWage! >= 280 && employee.currentWage! <= 700) {
+      percentageIncrease = 15;
+      valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
+      wageTotal = valueIncrease + employee.currentWage!;
       
-      if (employee.currentWage! < 280) {
-        percentageIncrease = 20;
-        valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-        wageTotal = valueIncrease + employee.currentWage!;
-                
-      } else if (employee.currentWage! >= 280 && employee.currentWage! <= 700) {
-        percentageIncrease = 15;
-        valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-        wageTotal = valueIncrease + employee.currentWage!;
-        
-      } else if (employee.currentWage! > 700 && employee.currentWage! <= 1500) {
-        percentageIncrease = 10;
-        valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-        wageTotal = valueIncrease + employee.currentWage!;        
+    } else if (employee.currentWage! > 700 && employee.currentWage! <= 1500) {
+      percentageIncrease = 10;
+      valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
+      wageTotal = valueIncrease + employee.currentWage!;        
 
-      } else if (employee.currentWage! > 1500) {
-        percentageIncrease = 5;
-        valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-        wageTotal = valueIncrease + employee.currentWage!;
+    } else if (employee.currentWage! > 1500) {
+      percentageIncrease = 5;
+      valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
+      wageTotal = valueIncrease + employee.currentWage!;
 
-      } 
-      return "Salário antes do ajuste: ${employee.currentWage} \nPercentual de aumento aplicado: $percentageIncrease% \nValor do aumento: $valueIncrease \nNovo salário após o aumento:$wageTotal";
     } 
-    return null;
-  } 
+    return "Salário antes do ajuste: ${employee.currentWage} \nPercentual de aumento aplicado: $percentageIncrease% \nValor do aumento: $valueIncrease \nNovo salário após o aumento:$wageTotal";
+  }  
 }
 
 void main() {
     
-  final employee = Employee(id: "0002", currentWage: 100, office: "Digitador", name: "Giovane", birthDate: "12/06/2006", sex: "masc");
+  final employee = Employee(id: "0002", currentWage: 100, office: "Digitador", name: "Giovane", birthDate: "12/06/2006", gender: "masc");
   final rh = Rh(cnpj: 230879937, companyName: "Giovane digitador");
   
 //   Testes

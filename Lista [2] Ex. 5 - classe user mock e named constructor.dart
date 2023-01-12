@@ -7,10 +7,10 @@ class User {
   User({this.userId, this.id, this.title, this.completed});
 
   User.fromMap(Map<dynamic, dynamic> map) {
-    userId = map['userId'] ?? '';
-    id = map['id'] ?? '';
-    title = map['title'] ?? '';
-    completed = map['completed'] ?? '';
+    userId = map['userId'];
+    id = map['id'];
+    title = map['title'];
+    completed = map['completed'];
   }
 
   @override
@@ -24,9 +24,9 @@ void main() {
     {"userId": 3, "id": 3, "title": "Laís Silva", "completed": true}
   ];
   
-  final List<User> user = mock.map((element) => User.fromMap(element)).toList();
+  final List<User> users = mock.map((task) => User.fromMap(task)).toList();
 
-  for (var user in user) {
+  for (var user in users) {
     print(user);
   }
 }

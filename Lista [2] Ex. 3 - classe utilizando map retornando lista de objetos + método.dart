@@ -3,20 +3,20 @@ class Person {
   int? age;
   double? weight;
   double? height;
-
-  Person({this.name});
+  
+  Person({required this.name});
 
   Person.fromMap(Map<String, dynamic> map) {
-    name = map['name'] ?? 'nao informado';
-    age = map['age'] ?? 0;
-    weight = map['weight'] ?? 0.0;
-    height = map['height'] ?? 0.0;
+    name = map['name'];
+    age = map['age'];
+    weight = map['weight'];
+    height = map['height'];
   }
 
-  bool testAge() => age != null && age! > 0;
+  bool validateAge() => age != null && age! > 0;
 
   String? verifyAge() {
-    if (testAge()) {
+    if (validateAge()) {
       if (age! >= 18) {
         return "Of legal age";
       } else {

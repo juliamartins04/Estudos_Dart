@@ -15,12 +15,12 @@ class MapObject {
       this.amountPeople});
 
   MapObject.fromMap(Map<String, dynamic> map) {
-    id = map['id'] ?? '';
-    title = map['title'] ?? '';
-    description = map['description'] ?? '';
-    startDate = map['start_date'] ?? '';
-    expectedEndDate = map['expected_end_date'] ?? '';
-    amountPeople = map['amount_people'] ?? '';
+    id = map['id'];
+    title = map['title'];
+    description = map['description'];
+    startDate = map['start_date'];
+    expectedEndDate = map['expected_end_date'];
+    amountPeople = map['amount_people'];
   }
 
   @override
@@ -47,10 +47,10 @@ void main() {
     }
   ];
 
-  final List<MapObject> mapObject =
-      mock.map((element) => MapObject.fromMap(element)).toList();
+  final List<MapObject> mapObjects =
+      mock.map((task) => MapObject.fromMap(task)).toList();
 
-  for (var mapObject in mapObject) {
+  for (var mapObject in mapObjects) {
     print(mapObject);
   }
 }

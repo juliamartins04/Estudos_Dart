@@ -1,11 +1,10 @@
 class Person {
-  
   String? name;
   
   Person({this.name});
   
   Person.fromMap(Map<String, String> map) {
-    name = map['name'] ?? '';
+    name = map['name'];
   }
   
   @override

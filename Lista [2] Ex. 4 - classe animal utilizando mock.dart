@@ -5,13 +5,13 @@ class Animal {
   String? range;
   String? status;
 
-  Animal({this.name});
+  Animal({this.id, this.name, this.diet, this.range, this.status});
 
   Animal.fromMap(Map<String, dynamic> map) {
-    id = map['id'] ?? 0;
-    name = map['name'] ?? '';
+    id = map['id'];
+    name = map['name'];
     diet = map['diet'] ?? 'Não informado';
-    range = map['range'] ?? '';
+    range = map['range'];
     status = map['status'] ?? 'Não informado';
   }
 
@@ -26,10 +26,10 @@ void main() {
     {'id': 2, 'name': 'Lia', 'range': 'miauu', 'status': 'gripado'}
  ];
 
-  final List<Animal> animal =
-      mock.map((element) => Animal.fromMap(element)).toList();
+  final List<Animal> animals =
+      mock.map((animal) => Animal.fromMap(animal)).toList();
 
-  for (var animal in animal) {
+  for (var animal in animals) {
     print(animal);
   }
 }
