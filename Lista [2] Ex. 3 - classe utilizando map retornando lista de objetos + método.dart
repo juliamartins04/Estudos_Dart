@@ -15,16 +15,19 @@ class Person {
 
   bool validateAge() => age != null && age! > 0;
 
-  String? verifyAge() {
-    if (validateAge()) {
-      if (age! >= 18) {
-        return "Of legal age";
-      } else {
-        return "Is not of age";
-      }
-    }
-    return null;
-  }
+  String? verifyAge() => validateAge() ? age >= 18 ? "Of legal age" : "Is not of age" : null;
+
+  // String? verifyAge() {
+  //   if (validateAge()) {
+  //     if (age! >= 18) {
+  //       return "Of legal age";
+  //     } else {
+  //       return "Is not of age";
+  //     }
+  //   } else {
+  //     return null
+  //   }
+  // }
 
   @override
   String toString() => "Name: $name \nAge: $age \nIs of legal age? ${verifyAge()} \nWeight: $weight \nHeight: $height";

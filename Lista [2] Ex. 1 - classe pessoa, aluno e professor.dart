@@ -1,13 +1,13 @@
 abstract class Person {
   
-  int? code;
-  String? name;
-  String? lastName;
+  int code;
+  String name;
+  String lastName;
 
-  Person({required this.code, this.name, this.lastName});
+  Person({required this.code, required this.name, required this.lastName});
   
-  String transformToLowerCase() => "${name?.toLowerCase()} ${lastName?.toLowerCase()}"; 
-  String transformToUpperCase() => "${name?.toUpperCase()} ${lastName?.toUpperCase()}";
+  String transformToLowerCase() => "${name.toLowerCase()} ${lastName.toLowerCase()}"; 
+  String transformToUpperCase() => "${name.toUpperCase()} ${lastName.toUpperCase()}";
   
   @override
   String toString() => "Code: $code \nName: $name \nLast name: $lastName \nName to lower case: ${transformToLowerCase()} \nName to upper case: ${transformToUpperCase()}"; 

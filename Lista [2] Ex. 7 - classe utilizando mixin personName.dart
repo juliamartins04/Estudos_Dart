@@ -1,12 +1,12 @@
 mixin PersonName {    
   
-  String showName(name) => name == null ? "BAD": "${name.toUpperCase().substring(0, 3)}"; 
+  String showName(String? name) => name == null ? "BAD": "${name.toUpperCase().substring(0, 3)}"; 
 }
 
 class Person with PersonName {  
-  String? name;  
+  String name;  
 
-  Person({this.name});
+  Person({required this.name});
 
   @override
   String toString() => "Name: $name \nMetod: ${showName(name)}";

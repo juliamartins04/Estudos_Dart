@@ -1,27 +1,28 @@
 class MapObject {
-  String? id;
-  String? title;
-  String? description;
-  String? startDate;
-  String? expectedEndDate;
-  int? amountPeople;
+  String id;
+  String title;
+  String description;
+  String startDate;
+  String expectedEndDate;
+  int amountPeople;
 
   MapObject(
-      {this.id,
-      this.title,
-      this.description,
-      this.startDate,
-      this.expectedEndDate,
-      this.amountPeople});
+      {required this.id,
+      required this.title,
+      required this.description,
+      required this.startDate,
+      required this.expectedEndDate,
+      required this.amountPeople});
 
-  MapObject.fromMap(Map<String, dynamic> map) {
-    id = map['id'];
-    title = map['title'];
-    description = map['description'];
-    startDate = map['start_date'];
-    expectedEndDate = map['expected_end_date'];
-    amountPeople = map['amount_people'];
-  }
+  factory MapObject.fromMap(Map<String, dynamic> map) =>
+    MapObject (
+    id: map['id'],
+    title: map['title'],
+    description: map['description'],
+    startDate: map['start_date'],
+    expectedEndDate: map['expected_end_date'],
+    amountPeople: map['amount_people']
+    );
 
   @override
   String toString() => "Id: $id \nTitle: $title \nDescription: $description \nStart Date: $startDate \nExpected end date: $expectedEndDate \nAmount people: $amountPeople";

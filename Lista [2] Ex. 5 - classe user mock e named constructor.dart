@@ -1,17 +1,18 @@
 class User {
-  int? userId;
-  int? id;
-  String? title;
-  bool? completed;
+  int userId;
+  int id;
+  String title;
+  bool completed;
 
-  User({this.userId, this.id, this.title, this.completed});
+  User({required this.userId, required this.id, required this.title, required this.completed});
 
-  User.fromMap(Map<dynamic, dynamic> map) {
-    userId = map['userId'];
-    id = map['id'];
-    title = map['title'];
-    completed = map['completed'];
-  }
+  factory User.fromMap(Map<dynamic, dynamic> map) =>
+    User (
+    userId: map['userId'],
+    id: map['id'],
+    title: map['title'],
+    completed: map['completed']
+    );
 
   @override
   String toString() => "User Id: $userId \nId: $id \nTitle: $title \nCompleted: $completed";
@@ -24,7 +25,7 @@ void main() {
     {"userId": 3, "id": 3, "title": "Laís Silva", "completed": true}
   ];
   
-  final List<User> users = mock.map((task) => User.fromMap(task)).toList();
+  final List<User> users = mock.map((user) => User.fromMap(user)).toList();
 
   for (var user in users) {
     print(user);

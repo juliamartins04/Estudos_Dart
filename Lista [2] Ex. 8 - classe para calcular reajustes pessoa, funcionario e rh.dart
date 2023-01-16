@@ -1,10 +1,10 @@
 abstract class Person {
   
-  String? name;
-  String? birthDate;
-  String? gender;
+  String name;
+  String birthDate;
+  String gender;
   
-  Person({this.name, this.birthDate, this.gender});  
+  Person({required this.name, required this.birthDate, required this.gender});  
 }
 
 class Employee extends Person{
@@ -13,7 +13,7 @@ class Employee extends Person{
   double? currentWage;
   String? office;
   
-  Employee({this.id, this.currentWage, this.office, String? name, String? birthDate, String? gender}): super(name: name, birthDate: birthDate, gender: gender);
+  Employee({this.id, this.currentWage, this.office, required String name, required String birthDate, required String gender}): super(name: name, birthDate: birthDate, gender: gender);
 }
 
 class Rh {
@@ -27,8 +27,7 @@ class Rh {
                
     double? percentageIncrease;
     double? valueIncrease;
-    double? wageTotal;
-    //totalAge
+    double? totalWage;
 
 
     if (employee.currentWage == null) {
@@ -37,25 +36,25 @@ class Rh {
     if (employee.currentWage! < 280) {
       percentageIncrease = 20;
       valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-      wageTotal = valueIncrease + employee.currentWage!;
+      totalWage = valueIncrease + employee.currentWage!;
               
     } else if (employee.currentWage! >= 280 && employee.currentWage! <= 700) {
       percentageIncrease = 15;
       valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-      wageTotal = valueIncrease + employee.currentWage!;
+      totalWage = valueIncrease + employee.currentWage!;
       
     } else if (employee.currentWage! > 700 && employee.currentWage! <= 1500) {
       percentageIncrease = 10;
       valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-      wageTotal = valueIncrease + employee.currentWage!;        
+      totalWage = valueIncrease + employee.currentWage!;        
 
     } else if (employee.currentWage! > 1500) {
       percentageIncrease = 5;
       valueIncrease = (percentageIncrease * employee.currentWage!) / 100;
-      wageTotal = valueIncrease + employee.currentWage!;
+      totalWage = valueIncrease + employee.currentWage!;
 
     } 
-    return "Salário antes do ajuste: ${employee.currentWage} \nPercentual de aumento aplicado: $percentageIncrease% \nValor do aumento: $valueIncrease \nNovo salário após o aumento:$wageTotal";
+    return "Salário antes do ajuste: ${employee.currentWage} \nPercentual de aumento aplicado: $percentageIncrease% \nValor do aumento: $valueIncrease \nNovo salário após o aumento:$totalWage";
   }  
 }
 
