@@ -1,20 +1,25 @@
 class Animal {
   
-  String? name;
+  String name;
   
-  Animal({this.name});
+  Animal({required this.name});
   
-  Animal.fromMap(Map<String, String> map) {
-    name = map['name'];
-  }
+  factory Animal.fromMap(Map<String, dynamic> map) =>
+    Animal(  
+      name: map['name']
+    );
+  
+  Map<String, dynamic> toMap() => {'name': name };
 
   @override
-  String toString() => "Name: $name";
+  String toString() => "Animal: ${toMap()}";
 }
 void main() {  
 
-  const mock = [{'name': 'Rex'}, {'name': 'Lilica'}, {'name': 'Kiko'}];
+  const mock = [{'name': 'Rex'}, {'name': 'Lilica'}, {'name': 'Kiko'}, {'name': 'Rex'}, {'name': 'Lilica'}, {'name': 'Kiko'},  {'name': 'Kiko'}, {'name': 'Rex'}, {'name': 'Lilica'}, {'name': 'Kiko'}];
       
-  final List<Animal> product = mock.map((element) => Animal.fromMap(element)).toList();
-  print(product);
+  final List<Animal> animals = mock.map((element) => Animal.fromMap(element)).toList();
+  for(var animal in animals) {
+    print(animal);  
+  }
 } 

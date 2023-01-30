@@ -1,5 +1,4 @@
 mixin Gender {
-  
   String checkGender(gender) {
     if (gender == 1) {
       return "Feminino";
@@ -10,13 +9,13 @@ mixin Gender {
   }
 }
 
-class Person with Gender{
+class Person with Gender {
   
-  String? name;
-  int? id;
-  int? gender;
+  String name;
+  int id;
+  int gender;
   
-  Person({this.name, this.id, this.gender});
+  Person({required this.name, required this.id, required this.gender});
   
   factory Person.fromMap(Map<String, dynamic> map) =>
     Person (
@@ -32,9 +31,7 @@ class Person with Gender{
 void main() {  
   
   const mock = {'name': 'júlia', 'alias': 'SEI LA', 'id': 01, 'hostName': 'juju'};
-
-//   final person = Person(name: "Julia", id: 02, gender: 1);
-    final person = Person.fromMap(mock);
+  final person = Person.fromMap(mock);
 
   print(person);  
 } 

@@ -1,7 +1,7 @@
 class Person {
 
-  String showListAnimals() {
-    List<String> namesOfAnimals = [
+  String showListPersonNames() {
+    List<String> listPersonNames = [
     "Júlia",
     "Raj",
     "Laís",
@@ -13,12 +13,12 @@ class Person {
     "Ueslen",
     "Reus",
     ]; 
-    return "$namesOfAnimals";
+    return "$listPersonNames";
   }
 }  
 
 void main() {  
 
   final person = Person();
-  print(person.showListAnimals());
+  print(person.showListPersonNames());
 }

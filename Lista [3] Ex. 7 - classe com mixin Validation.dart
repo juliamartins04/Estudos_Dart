@@ -1,22 +1,22 @@
 mixin Validation {
       
-  bool verifyEmail({required String emailAdress}) => emailAdress.contains("@");
-  bool verifyFinalEmail({required String emailAdress}) => emailAdress.contains(".com");
+  bool validateEmailIsReal({required String emailAdress}) => emailAdress.contains("@");
+  bool validateFinalEmail({required String emailAdress}) => emailAdress.contains(".com");
 }
 
-class Email with Validation{  
+class Email with Validation {  
 
   String emailAdress;
   
   Email({required this.emailAdress});
   
-  String validateEmail() => verifyEmail(emailAdress: emailAdress) && verifyFinalEmail(emailAdress: emailAdress) ? "Email válido" : "Email inválido";
+  String showResults() => validateEmailIsReal(emailAdress: emailAdress) && validateFinalEmail(emailAdress: emailAdress) ? "Email válido" : "Email inválido";
    
   @override
-  String toString() => validateEmail();  
+  String toString() => "";  
 }
 
-void main(){ 
+void main() { 
   
   final email = Email(emailAdress: "ju@gmail.com");
   print(email);  
