@@ -17,7 +17,6 @@ class Institution {
 void main() { 
 
   const mock = [{'name': 'júlia', 'alias': 'SEI LA', 'id': 01, 'hostName': 'juju'}, {'name': 'Lais', 'alias': 'SEI LA', 'id': 02, 'hostName': 'lala'}, {'name': 'Ueslen', 'alias': 'SEI LA', 'id': 03, 'hostName': 'raj'}];
-  
   final List<Institution> people = mock.map((element) => Institution.fromMap(element)).toList();
 
   for (var person in people) {

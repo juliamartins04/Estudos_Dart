@@ -6,14 +6,10 @@ mixin Validation {
 
 class Email with Validation {  
 
-  String emailAdress;
-  
+  String emailAdress; 
   Email({required this.emailAdress});
   
   String showResults() => validateEmailIsReal(emailAdress: emailAdress) && validateFinalEmail(emailAdress: emailAdress) ? "Email válido" : "Email inválido";
-   
-  @override
-  String toString() => "";  
 }
 
 void main() { 

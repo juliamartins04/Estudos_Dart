@@ -1,10 +1,9 @@
 import 'dart:math' as math;
 
 class Calculator {
-  // peso
+
   double? _weight;
   double? _height;
-  // altura
   int? _age;
 
   double get weight => _weight ?? 0.0;

@@ -17,7 +17,6 @@ class Person implements InterfaceOfMethods {
   String toString() => "Code: ${showName(name)}${showLastName(lastName)}";
 }
 
-
 void main() {
   final person = Person();
   

@@ -1,12 +1,7 @@
 class Person {
    
   int index = 0; 
-//   String test() {
-//     for(i; i < str.length; i++) {
-//       print(split[i].toLowerCase());
-//     }
-//     return "";
-//   } 
+
   String convertLettersUppercaseAndLowercase({required String element}) => index % 2 == 0 ? element.toLowerCase() : element.toUpperCase();
    
   String showResults({required String name}) {

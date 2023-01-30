@@ -6,9 +6,7 @@ class Product {
   
   Product({required this.id, required this.description, required this.value});
   
-  factory Product.fromMap(Map<String, dynamic> map) => 
-    Product(id: map['id'], description: map['description'], value: map['value']);
-  
+  factory Product.fromMap(Map<String, dynamic> map) => Product(id: map['id'], description: map['description'], value: map['value']);
   Map<String, dynamic> toMap() => {'id': id, 'description': description, 'value': value};
   
   @override

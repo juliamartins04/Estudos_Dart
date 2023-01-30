@@ -17,9 +17,6 @@ class Number {
     }
     return list;
   }
-  
-  @override
-  String toString() => "";
 }
 
 void main() {
