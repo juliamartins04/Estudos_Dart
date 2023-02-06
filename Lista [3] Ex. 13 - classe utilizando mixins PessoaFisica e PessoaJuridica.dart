@@ -16,18 +16,28 @@ mixin PhysicalPerson {
   
   static const maskRegExp = r'[^\d]';
 
+  // cpf chega sem o digito verificador
+  // transforma o primeiro caracter em um inteiro decimal
+  // 
+  // resumo ... faz o calculo e retorna um digito verificador
+  
   int _verifyDigit(String cpf) {
     List<int> numbers =
     cpf.split("").map((number) => int.parse(number)).toList();
 
+    
     int modulus = numbers.length + 1;
 
     List<int> multiplied = [];
 
+    // modulo - index 10,9,8,7,6,5,4,3,2
+    // primeiro digito digita por 10, segundo por 9....
     for (var i = 0; i < numbers.length; i++) {
       multiplied.add(numbers[i] * (modulus - i));
     }
 
+    // pega todas as posições do multiply e soma todas elas
+    // vai percorrer tudo e reduzir, depois pegar o resto da divisão por 11
     int mod = multiplied.reduce((buffer, number) => buffer + number) % 11;
 
     return (mod < 2 ? 0 : 11 - mod);
@@ -43,7 +53,9 @@ mixin PhysicalPerson {
     
   // Desmascara com regex
   String unmask(String cpf) {
+    // criação do regex, percorrendo todos os caracteres sem ponto e hífen
     RegExp regExp = RegExp(maskRegExp);
+    // Remove tudo que for dígitos de uma string
     // Retorna substituindo
     return cpf.replaceAll(regExp, "");
   }
@@ -74,11 +86,17 @@ mixin PhysicalPerson {
     if (stripBeforeValidation) {
       cpf = unmask(cpf!);
     }
-
+    
+    // remove digitos verificadores informados no cpf
     String numbers = cpf.substring(0, 9);
+    
+    // pega o digito verificador e atribui ao cpf
     numbers += _verifyDigit(numbers).toString();
+    // calcula segundo digito verificador e atribui ao metdo verifyDigit
     numbers += _verifyDigit(numbers).toString();
 
+    // pega o cpf que calculou, pega numero total de posições 
+    // pega os dis ultimos digitos do cpf calculado e compara com os dois ultimos digitos do cpf informado
     return numbers.substring(numbers.length - 2) ==
         cpf.substring(cpf.length - 2);
   }
@@ -106,19 +124,16 @@ mixin LegalPerson {
     int index = 2;
     List<int> reversedList = cnpj.split("").map((listItem) => int.parse(listItem)).toList().reversed.toList();
     int sum = 0;
-
-    
-//     for (var reversedListItem in reversedList) {
-//     // Rest of your code
-//     }
-    reversedList.forEach((number) {
+  
+    for (var number in reversedList) { 
       sum += number * index;
-      index = (index == 9 ? 2 : index + 1);
-    });
-    int mod = sum % 11;
-
-    return (mod < 2 ? 0 : 11 - mod);
+       index = (index == 9 ? 2 : index + 1);
+    }
+    
+    int mob = sum % 11;
+    return (mob < 2 ? 0 : 11 - mob);
   }
+  
   
   String strip(String? cnpj) {
     RegExp regex = RegExp(stripRegex);
@@ -144,6 +159,7 @@ mixin LegalPerson {
  
   dynamic isCNPJValid(String? cnpj, [stripBeforeValidation = true]) {
     
+    // vai validar o formato que a informação chegou
     if (stripBeforeValidation) {
       cnpj = strip(cnpj);
     }
