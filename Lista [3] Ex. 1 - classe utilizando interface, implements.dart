@@ -1,26 +1,22 @@
-abstract class InterfaceOfMethods {
+abstract class IPerson {
 
-  String? showName(String? name);  
-  String? showLastName(String? lastName);
+  String showClientName(String name, String lastName);  
 }
 
-class Person implements InterfaceOfMethods {
+class Person implements IPerson {
   
-  String? name;
-  String? lastName;
+  String name;
+  String lastName;
+  
+  Person({required this.name, required this.lastName});
   
   @override
-  String? showName(name) => name?.toUpperCase().substring(0, 2); 
+  String showClientName(name, lastName) => "${name.toUpperCase().substring(0, 2)}${lastName.toUpperCase().substring(0, 1)}"; 
   @override
-  String? showLastName(lastName) => lastName?.toUpperCase().substring(0, 1); 
-  @override
-  String toString() => "Code: ${showName(name)}${showLastName(lastName)}";
+  String toString() => "Code: ${showClientName(name, lastName)}";
 }
 
 void main() {
-  final person = Person();
-  
-  person.name = "Júlia";
-  person.lastName = "Martins";
+  final person = Person(name: "Júlia", lastName: "Martins");
   print(person);
 }

@@ -1,16 +1,16 @@
 class Person {
    
-  int index = 0; 
+  int index = 0;
 
-  String convertLettersUppercaseAndLowercase({required String element}) => index % 2 == 0 ? element.toLowerCase() : element.toUpperCase();
+  String convertLettersUppercaseAndLowercase({required String caracter}) => index % 2 == 0 ? caracter.toLowerCase() : caracter.toUpperCase();
    
-  String showResults({required String name}) {
+  String showNumbersConverter({required String name}) {
     List<String> list = [];
     for(index; index < name.length; index++) {
-        list.add(convertLettersUppercaseAndLowercase(element: name[index]));
+        list.add(convertLettersUppercaseAndLowercase(caracter: name[index]));
     }
     String result = "";
-    list.map((element) => result += element).toList();
+    list.map((caracter) => result += caracter).toList();
     return result;
   } 
 }
@@ -18,5 +18,5 @@ class Person {
 void main() {
   
   final person = Person(); 
-  print(person.showResults(name: "welinton"));
+  print(person.showNumbersConverter(name: "welinton"));
 }

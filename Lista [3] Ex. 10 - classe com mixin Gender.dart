@@ -1,5 +1,7 @@
 mixin Gender {
-  String checkGender(gender) {
+
+  // switch
+  String checkPersonGender(gender) {
     if (gender == 1) {
       return "Feminino";
     } else if (gender == 2) {
@@ -25,7 +27,7 @@ class Person with Gender {
     ); 
   
   @override
-  String toString() => "Name: $name \nId: $id \nGender: ${checkGender(gender)}";
+  String toString() => "Name: $name \nId: $id \nGender: ${checkPersonGender(gender)}";
 }
 
 void main() {  

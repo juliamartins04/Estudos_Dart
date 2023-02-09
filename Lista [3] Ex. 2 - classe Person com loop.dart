@@ -3,7 +3,7 @@ class Person {
   String name;  
   Person({required this.name});
   
-  void showNameRepeated() {   
+  void showNameRepeatedTwentyTimes() {   
     for (int i = 0; i < 20; i++) {
       print(name);
     }
@@ -13,5 +13,5 @@ class Person {
 void main() {  
 
   final person = Person(name: "ju");
-  person.showNameRepeated(); 
+  person.showNameRepeatedTwentyTimes(); 
 }

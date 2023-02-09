@@ -1,8 +1,8 @@
 class Person {
 
-  String showListPersonNames() {
+  List<String> showListPersonNames() {
     List<String> listPersonNames = ["Júlia", "Raj", "Laís", "Thiago", "Welinton", "Giovane", "Le", "Andressa", "Ueslen", "Reus"]; 
-    return "$listPersonNames";
+    return listPersonNames;
   }
 }  
 

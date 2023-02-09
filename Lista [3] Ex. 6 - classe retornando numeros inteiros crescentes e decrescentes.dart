@@ -1,18 +1,18 @@
 class Number {
   
-  int i = 0;
+  int index = 0;
  
-  List<int> showgrowingNumbers({required int value}) {
+  List<int> showGrowingNumbers({required int value}) {
     List<int> list = [];
-    for(i; i <= value; i++) {
-      list.add(i);
+    for(index; index <= value; index++) {
+      list.add(index);
     }
     return list;
   }
   
-   List<int> showDecreasingNumbers({required int value}) {
+  List<int> showDecreasingNumbers({required int value}) {
     List<int> list= [];
-    for(i; value >= 0; value--) {
+    for(index; value >= 0; value--) {
       list.add(value);
     }
     return list;
@@ -20,9 +20,9 @@ class Number {
 }
 
 void main() {
-  
+
   final number = Number();
   
+  number.showGrowingNumbers(value: 10).map((index) => print(index)).toList();
   number.showDecreasingNumbers(value: 10).map((index) => print(index)).toList();
-  number.showgrowingNumbers(value: 10).map((index) => print(index)).toList();
 }

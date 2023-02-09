@@ -21,11 +21,11 @@ mixin PhysicalPerson {
   // 
   // resumo ... faz o calculo e retorna um digito verificador
   
+  // Calculando o digito verificador
   int _verifyDigit(String cpf) {
     List<int> numbers =
     cpf.split("").map((number) => int.parse(number)).toList();
 
-    
     int modulus = numbers.length + 1;
 
     List<int> multiplied = [];
@@ -50,7 +50,7 @@ mixin PhysicalPerson {
     return unmask(cpf).replaceAllMapped (
         regExp, (Match m) => "${m[1]}.${m[2]}.${m[3]}-${m[4]}");
   }
-    
+  
   // Desmascara com regex
   String unmask(String cpf) {
     // criação do regex, percorrendo todos os caracteres sem ponto e hífen
@@ -68,8 +68,9 @@ mixin PhysicalPerson {
   bool validateIsCPFNotValidNumberNegative(cpf) => listCPFNotValid.contains(cpf);
  
   // Método validando CPF
-  dynamic isCPFValid(String? cpf) {
+  bool isCPFValid(String? cpf) {
     
+    // deve ficar como parametro
     bool stripBeforeValidation = true;
     
     // Chama os métodos de verificação
@@ -82,7 +83,7 @@ mixin PhysicalPerson {
       return false;
     }
     
-    // Retira pontos  hífens para a validação
+    // Retira pontos e hífens para a validação
     if (stripBeforeValidation) {
       cpf = unmask(cpf!);
     }
@@ -98,7 +99,7 @@ mixin PhysicalPerson {
     // pega o cpf que calculou, pega numero total de posições 
     // pega os dis ultimos digitos do cpf calculado e compara com os dois ultimos digitos do cpf informado
     return numbers.substring(numbers.length - 2) ==
-        cpf.substring(cpf.length - 2);
+      cpf.substring(cpf.length - 2);
   }
 }
 
@@ -120,7 +121,8 @@ mixin LegalPerson {
   ];
   
   // Método que mapeia o dígitoverificador
-  int mapCheckerDigit(String cnpj) {
+  // calculando**
+  int calculateCheckerDigit(String cnpj) {
     int index = 2;
     List<int> reversedList = cnpj.split("").map((listItem) => int.parse(listItem)).toList().reversed.toList();
     int sum = 0;
@@ -133,7 +135,6 @@ mixin LegalPerson {
     int mob = sum % 11;
     return (mob < 2 ? 0 : 11 - mob);
   }
-  
   
   String strip(String? cnpj) {
     RegExp regex = RegExp(stripRegex);
@@ -157,7 +158,8 @@ mixin LegalPerson {
   // Verifica se o numero n é negativo
   bool isCNPJNotValidNumberNegative(cnpj) => listOfCNPJNotValid.contains(cnpj);
  
-  dynamic isCNPJValid(String? cnpj, [stripBeforeValidation = true]) {
+
+  bool isCNPJValid(String? cnpj, [stripBeforeValidation = true]) {
     
     // vai validar o formato que a informação chegou
     if (stripBeforeValidation) {
@@ -177,11 +179,11 @@ mixin LegalPerson {
     }
 
     String numbers = cnpj.substring(0, 12);
-      numbers += mapCheckerDigit(numbers).toString();
-      numbers += mapCheckerDigit(numbers).toString();
+      numbers += calculateCheckerDigit(numbers).toString();
+      numbers += calculateCheckerDigit(numbers).toString();
 
       return numbers.substring(numbers.length - 2) ==
-          cnpj.substring(cnpj.length - 2);
+        cnpj.substring(cnpj.length - 2);
   }  
 }
 
@@ -221,7 +223,6 @@ class Client with PhysicalPerson, LegalPerson {
   
   @override
   String toString() => "Name: $name \nType: $type \nDocument $document \n${validateDocument(document, type)} \n";
-
 }
 
 void main() {
@@ -233,7 +234,7 @@ void main() {
                {'name': 'welinton', 'type': 1, 'document': '85396958049'},
                {'name': 'thiago', 'type': 2, 'document': '11129847000197'}];
   
-  final List<Client> clients = mock.map((index) => Client.fromMap(index)).toList();
+  final List<Client> clients = mock.map((client) => Client.fromMap(client)).toList();
   
   for (var client in clients) {
     print(client);
