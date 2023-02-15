@@ -31,7 +31,7 @@ mixin PhysicalPerson {
     List<int> multiplied = [];
 
     // modulo - index 10,9,8,7,6,5,4,3,2
-    // primeiro digito digita por 10, segundo por 9....
+    // primeiro digito por 10, segundo por 9....
     for (var i = 0; i < numbers.length; i++) {
       multiplied.add(numbers[i] * (modulus - i));
     }
